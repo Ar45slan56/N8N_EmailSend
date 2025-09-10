@@ -1,0 +1,71 @@
+{
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contact-form",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        16
+      ],
+      "id": "47c041ab-b8c8-4248-b51d-8e3cdbf594ea",
+      "name": "Webhook",
+      "webhookId": "684d9575-3b41-4cdd-91a6-9e6dac84da06"
+    },
+    {
+      "parameters": {
+        "fromEmail": "arman40591@gmail.com",
+        "toEmail": "={{ $json.body.email }}",
+        "subject": "AI automation N8N",
+        "emailFormat": "text",
+        "text": "={{ $json.body.message }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        -32,
+        16
+      ],
+      "id": "4b140e75-0c2a-4843-a8ed-98499ceffa58",
+      "name": "Send email",
+      "webhookId": "e43b540f-28b4-43aa-a5f5-243dfdc6c63d",
+      "credentials": {
+        "smtp": {
+          "id": "gzzry8ZxFF4dQOjK",
+          "name": "SMTP account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Send email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "bf56877e-a42b-4cdc-9d9d-c6f224c994e2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bddd6dfeeb14062ef7bf5e51c9fc61695360172e8ae2a04f2cf605319c954c59"
+  },
+  "id": "ChOiV0ckbIigGBZF",
+  "tags": []
+}
